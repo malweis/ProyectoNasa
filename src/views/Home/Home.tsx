@@ -5,7 +5,7 @@
  
         import React, { useEffect, useState } from 'react';
         import { View, Text , StyleSheet} from 'react-native';
-        import { Header, Iotd } from '../../components';
+        import { Header, HistoricView, Iotd } from '../../components';
 import { PictureOfTheDay } from './types';
 
     
@@ -34,6 +34,7 @@ import { PictureOfTheDay } from './types';
                 <View style={styles.containerMain}  >
                     <Header />
                     <Iotd picture={pictureOfTheDay} />
+                    <HistoricView />
                 </View>
             );
 
