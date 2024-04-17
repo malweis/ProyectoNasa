@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Image, Text, StyleSheet } from 'react-native';
+import { View, Image, Text, StyleSheet, Button, Pressable } from 'react-native';
 import { PictureOfTheDay } from '../../views/Home/types';
 
 
@@ -11,15 +11,23 @@ interface IotdProps {
 
 const Iotd: React.FC<IotdProps> = ({ picture }) => {
     return (
-        <View >
+        <View style={styles.iotdMain}>
             {picture && (
-                <View style={styles.containerImage}>
-                  
-                    <Image source={{ uri: picture.url }} style={styles.image}  />
-                   
-             
+                <View style={styles.iotdContainer}>
+                    <View style={styles.containerImage}>
+                    
+                        <Image source={{ uri: picture.url }} style={styles.image}  />
+                    
+                       
+                    
+                    </View>
+                    <View style={styles.TextContaiment}>
                     <Text style={styles.title}>{picture.title}</Text>
-                    <Text style={styles.description}>{picture.explanation}</Text>
+                        <Text style={styles.date}>{picture.date}</Text>
+                        <Pressable style={styles.button} >
+                            <Text style={styles.buttonText} >View</Text>
+                        </Pressable>
+                    </View>
                 </View>
             )}
         </View>
@@ -32,22 +40,60 @@ const styles = StyleSheet.create({
         
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 10,
-        backgroundColor: 'rgba(7,26,130,255)',
+        
+        backgroundColor: 'rgb(40, 59, 148)',
         borderWidth: 2,
         borderColor: 'white',
         borderRadius: 10,
+        paddingVertical: 28,
+    },
+    
+    button: {
+      alignSelf: 'flex-end',
+        
+        
+    },
+
+    iotdContainer: {
+        width: "100%",
+        backgroundColor: 'rgb(40, 59, 148)',
+        padding: 20,
+        borderRadius: 30,
+    },
+    iotdMain: {
+        width: "100%",
+        padding: 30,
+        borderRadius: 80 ,
+       
     },
     
     image: {
-        width: 200,
+        width: "100%",
         height: 200,
-        marginBottom: 10,
+       
     },
     title: {
         fontSize: 20,
         fontWeight: 'bold',
+        color: 'white',
         marginBottom: 5,
+    },
+    TextContaiment: {
+        marginTop: 10,
+        flexDirection: 'column',
+        gap: 10,
+    },
+    buttonText: {
+        fontSize: 20,
+        fontWeight: 'normal',
+        color: 'white',
+       
+    },
+     date: {
+        fontSize: 15,
+        fontWeight: 'normal',
+        color: 'white',
+      
     },
     description: {
         fontSize: 16,
