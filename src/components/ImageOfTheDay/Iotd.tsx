@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
         borderRadius: 30,
     },
     iotdMain: {
-        width: "100%",
+   
+    
         padding: 30,
         borderRadius: 80 ,
        
