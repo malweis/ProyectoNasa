@@ -7,3 +7,8 @@ export interface PictureOfTheDay {
     title: string;
     url: string;
 }
+
+export type RootStackParamList = {
+    Home: undefined;
+    Details: undefined;
+};
