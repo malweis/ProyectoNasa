@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { View, Image, Text, StyleSheet, Button, Pressable } from 'react-native';
-import { PictureOfTheDay } from '../../views/Home/types';
+import { PictureOfTheDay, RootStackParamList } from '../../views/Home/types';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 
 
@@ -8,8 +10,13 @@ import { PictureOfTheDay } from '../../views/Home/types';
 interface IotdProps {
     picture : PictureOfTheDay | undefined;
 }
+ type PostImageNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Detail'>;
+
 
 const Iotd: React.FC<IotdProps> = ({ picture }) => {
+    const navigation = useNavigation<PostImageNavigationProp>();
+
+
     return (
         <View style={styles.iotdMain}>
             {picture && (
@@ -24,7 +31,7 @@ const Iotd: React.FC<IotdProps> = ({ picture }) => {
                     <View style={styles.TextContaiment}>
                     <Text style={styles.title}>{picture.title}</Text>
                         <Text style={styles.date}>{picture.date}</Text>
-                        <Pressable style={styles.button} >
+                        <Pressable style={styles.button} onPress={ () => navigation.navigate("Detail" , picture ) } >
                             <Text style={styles.buttonText} >View</Text>
                         </Pressable>
                     </View>

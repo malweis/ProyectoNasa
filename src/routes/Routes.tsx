@@ -26,7 +26,7 @@ const Routes: React.FC = () => {
             screenOptions={routeScreenDefaultOptions}
             >
                 <Stack.Screen name="Home" component={Home}   />
-                <Stack.Screen name="About" component={Detail}     />
+                <Stack.Screen name="Detail" component={Detail}     />
              
             </Stack.Navigator>
         </NavigationContainer>

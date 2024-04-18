@@ -1,3 +1,5 @@
+
+
 export interface PictureOfTheDay {
     date: string;
     explanation: string;
@@ -10,5 +12,6 @@ export interface PictureOfTheDay {
 
 export type RootStackParamList = {
     Home: undefined;
-    Details: undefined;
+    Detail: PictureOfTheDay;
 };
+
