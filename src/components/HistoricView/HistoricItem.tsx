@@ -1,18 +1,24 @@
 import React from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
-import { PictureOfTheDay } from '../../views/Home/types';
+import { PictureOfTheDay, RootStackParamList } from '../../views/Home/types';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
 type HistoricItemProps = {
-    data: PictureOfTheDay;
+    picture: PictureOfTheDay;
   };
 
+  type PostImageNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Detail'>;
 
-  const HistoricItem = ({ data }: HistoricItemProps) => {
+
+  
+  const HistoricItem = ({ picture }: HistoricItemProps) => {
+    const navigation = useNavigation<PostImageNavigationProp>();
     return (
         <View style={styles.lastDaysMain}>
             <View style={styles.lastDayContainer}>
-            <Text style={styles.title}>{data.title}</Text>
-            <Text style={styles.text}>20/23/3123aaa</Text>
-            <Pressable style={styles.button} >
+            <Text style={styles.title}>{picture.title}</Text>
+            <Text style={styles.text}>{picture.date}</Text>
+            <Pressable style={styles.button} onPress={ () => navigation.navigate("Detail" , picture ) } >
                             <Text style={styles.buttonText} >View</Text>
                         </Pressable>
                         </View>

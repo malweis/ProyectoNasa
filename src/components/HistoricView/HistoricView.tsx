@@ -15,7 +15,7 @@ const HistoricView = ({daysArray}:HistoricViewProps) => {
             <Text style={styles.title}>Last 5 Days</Text>
             <ScrollView style={styles.scrollView} >
             {daysArray.map((day, index) => (
-                <HistoricItem key={index} data={day} />
+                <HistoricItem key={index} picture={day} />
             ))}
             </ScrollView>
           
